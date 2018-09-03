@@ -14,10 +14,10 @@ namespace tieto_entry {
             path = null;
             appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
             appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            createAppDataDirectory();
+            createDirectoryInAppData();
         }
 
-        private void createAppDataDirectory() {
+        private void createDirectoryInAppData() {
             try {
                 path = Path.Combine(appDataPath, appName);
                 if (!Directory.Exists(path)) {

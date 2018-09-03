@@ -45,12 +45,16 @@
   <ItemGroup>
     <Compile Include="2dObjectCoordinator.cs" />
     <Compile Include="2dObjects.cs" />
+    <Compile Include="AppData.cs" />
     <Compile Include="I2dObject.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Square.cs" />
+    <Compile Include="StorageFactory.cs" />
     <Compile Include="Triangle.cs" />
+    <Compile Include="XML2DObjectsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
