@@ -3,30 +3,29 @@ using System.IO;
 
 namespace tieto_entry {
 
-    class Logger {
+    static class Log {
 
-        private string fileName = "logs.log";
-        private string path = null;
-        private string fullPath = null;
+        public static string fileName = "logs.log";
+        public static string fullPath = null;
 
-        public Logger(string path) {
-            this.path = path;
+        public static void init(string path) {
             fullPath = Path.Combine(path, fileName);
         }
 
-        public void writeLog(string message) {
-            writeToFile(string.Format("LOG: {0}", message));
+        public static void writeWarn(string message) {
+            writeToFile(string.Format("WARN: {0}", message));
         }
 
-        public void writeInfo(string message) {
+        public static void writeInfo(string message) {
             writeToFile(string.Format("INFO: {0}", message));
         }
 
-        public void writeError(string message) {
+        public static void writeError(string message) {
             writeToFile(string.Format("ERR: {0}", message));
+            Console.WriteLine("An error has occured. See {0} file for more details.", Log.fullPath);
         }
 
-        private void writeToFile(string text) {
+        public static void writeToFile(string text) {
             try {
                 using (StreamWriter writer = new StreamWriter(fullPath, fileMethod())) {
                     writer.WriteLine(text);
@@ -38,7 +37,7 @@ namespace tieto_entry {
             }
         }
 
-        private bool fileMethod() {
+        public static bool fileMethod() {
             return File.Exists(fullPath) ? true : false;
         }
 

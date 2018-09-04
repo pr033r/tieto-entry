@@ -12,13 +12,15 @@ namespace tieto_entry {
         static void Main(string[] args) {
 
             AppData appDataDirectory = new AppData();
-            Logger log = new Logger(appDataDirectory.path);
+            Log.init(appDataDirectory.path);
 
-            StorageFactory storageFactory = new StorageFactory();
+            StorageFactory storageFactory = new StorageFactory(); // DEV ONLY
 
-            XMLManager xmlManager = storageFactory.getXMLManager();
-            xmlManager.read(Path.Combine(appDataDirectory.path, "test.xml"));
-            
+            _2dObjects squareObjects = new _2dObjects();
+            squareObjects.read(Path.Combine(appDataDirectory.path, "test.xml"), 2);
+
+            Console.WriteLine(squareObjects);
+
             Console.ReadKey();
         }
 
