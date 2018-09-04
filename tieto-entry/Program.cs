@@ -17,7 +17,8 @@ namespace tieto_entry {
             StorageFactory storageFactory = new StorageFactory(); // DEV ONLY
 
             _2dObjects squareObjects = new _2dObjects();
-            squareObjects.read(Path.Combine(appDataDirectory.path, "test.xml"), 2);
+            squareObjects.read(Path.Combine(appDataDirectory.path, "test2.xml"));
+            //squareObjects.write(Path.Combine(appDataDirectory.path, "test2.xml"), new _2dObjects(new double[] { 1, 2, 3 }));
 
             Console.WriteLine(squareObjects);
 

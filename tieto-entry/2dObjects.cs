@@ -14,7 +14,6 @@ namespace tieto_entry {
     class _2dObjects : I2dObject {
 
         private StorageFactory storageFactory;
-
         public double Periphery { get; set; }
         public double[] Edges { get; set; }
 
@@ -24,22 +23,29 @@ namespace tieto_entry {
             calculatePeriphery();
         }
 
-        public void read(string pathToFile, int indexOfSquareObject) {
+        public void read(string pathToFile) {
             XMLManager xmlManager = storageFactory.getXMLManager();
-            List<_2dObjects> loadedSquareObjects = xmlManager.read(pathToFile);
+            _2dObjects loadedSquareObject = xmlManager.read(pathToFile);
+            Periphery = loadedSquareObject.Periphery;
+            Edges = loadedSquareObject.Edges;
             try {
-                Periphery = loadedSquareObjects[indexOfSquareObject].Periphery;
-                Edges = loadedSquareObjects[indexOfSquareObject].Edges;
                 chceckEdgesValidity();
-            } catch (ArgumentOutOfRangeException e) {
-                Log.writeError(e.ToString());
             } catch (InvalidEdgeSizeException e) {
                 Log.writeError(e.ToString());
             }
         }
 
-        public void write() {
-            // TODO
+        public void write(string pathToFile, _2dObjects squareObject) {
+            XMLManager xmlManager = storageFactory.getXMLManager();
+            Periphery = squareObject.Periphery;
+            Edges = squareObject.Edges;
+            try {
+                chceckEdgesValidity();
+                xmlManager.write(pathToFile, squareObject);
+            }
+            catch (InvalidEdgeSizeException e) {
+                Log.writeError(e.ToString());
+            }
         }
 
         public override string ToString() {

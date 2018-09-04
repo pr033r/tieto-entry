@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tieto_entry
-{
-    interface I2dObject
-    {
+namespace tieto_entry {
+
+    interface I2dObject {
+        // TODO
     }
+
 }
