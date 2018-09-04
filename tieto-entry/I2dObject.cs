@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace tieto_entry {
 
     interface I2dObject {
-        // TODO
+
+        void read(string pathToFile);
+        void write(string pathToFile, _2dObjects squareObject);
+
     }
 
 }

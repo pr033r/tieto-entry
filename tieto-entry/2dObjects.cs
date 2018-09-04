@@ -63,6 +63,8 @@ namespace tieto_entry {
                 }
             } catch (InvalidEdgeSizeException e) {
                 Log.writeError(e.ToString());
+            } catch (Exception e) {
+                Log.writeError(e.ToString());
             }
         }
 

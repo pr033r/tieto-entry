@@ -29,36 +29,36 @@ namespace tieto_entry {
         }
 
         public void write(string pathToFile, _2dObjects squareObject) {
-            XmlDocument doc = new XmlDocument();
-            XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
-            XmlElement root = doc.CreateElement("squareObject");
+            XmlDocument document = new XmlDocument();
+            XmlDeclaration declaration = document.CreateXmlDeclaration("1.0", "utf-8", null);
+            XmlElement root = document.CreateElement("squareObject");
 
-            doc.AppendChild(declaration);
-            writeSquareObject(squareObject, doc, root);
+            document.AppendChild(declaration);
+            writeSquareObject(squareObject, document, root);
 
-            doc.AppendChild(root);
-            doc.Save(pathToFile);
+            document.AppendChild(root);
+            document.Save(pathToFile);
         }
 
-        private static void writeSquareObject(_2dObjects squareObject, XmlDocument doc, XmlElement root) {
-            XmlElement objectElement = doc.CreateElement("object");
+        private static void writeSquareObject(_2dObjects squareObject, XmlDocument document, XmlElement root) {
+            XmlElement objectElement = document.CreateElement("object");
 
-            writeEdges(squareObject, doc, objectElement);
-            writePeriphery(squareObject, doc, objectElement);
+            writeEdges(squareObject, document, objectElement);
+            writePeriphery(squareObject, document, objectElement);
 
             root.AppendChild(objectElement);
         }
 
-        private static void writeEdges(_2dObjects squareObject, XmlDocument doc, XmlElement objectElement) {
+        private static void writeEdges(_2dObjects squareObject, XmlDocument document, XmlElement objectElement) {
             foreach (var node in squareObject.Edges) {
-                XmlElement edge = doc.CreateElement("edge");
+                XmlElement edge = document.CreateElement("edge");
                 edge.InnerText = node.ToString();
                 objectElement.AppendChild(edge);
             }
         }
 
-        private static void writePeriphery(_2dObjects squareObject, XmlDocument doc, XmlElement objectElement) {
-            XmlElement periphery = doc.CreateElement("periphery");
+        private static void writePeriphery(_2dObjects squareObject, XmlDocument document, XmlElement objectElement) {
+            XmlElement periphery = document.CreateElement("periphery");
             periphery.InnerText = squareObject.Periphery.ToString();
             objectElement.AppendChild(periphery);
         }

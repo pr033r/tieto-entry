@@ -20,7 +20,14 @@ namespace tieto_entry {
             squareObjects.read(Path.Combine(appDataDirectory.path, "test2.xml"));
             //squareObjects.write(Path.Combine(appDataDirectory.path, "test2.xml"), new _2dObjects(new double[] { 1, 2, 3 }));
 
-            Console.WriteLine(squareObjects);
+            Square square = new Square(5);
+            Rectangle rectangle = new Rectangle(3, 5);
+            Triangle triangle = new Triangle(1, 1, 1.41);
+
+            Console.WriteLine("Square: {0}", square);
+            Console.WriteLine("Rectangle: {0}", rectangle);
+            Console.WriteLine("Triangle: {0}", triangle);
+
 
             Console.ReadKey();
         }
