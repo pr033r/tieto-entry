@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    class Square : _2dObjects {
+    class Square : _2dObject {
 
-        private _2dObjects squareSurface;
         private double sideA;
 
         public Square(double sideA = 1) {
             double[] edges = Enumerable.Repeat(sideA, 4).ToArray();
-            squareSurface = new _2dObjects(edges);
             this.sideA = sideA;
+            base.Edges = edges;
         }
 
         public double surface() {
@@ -23,7 +22,7 @@ namespace tieto_entry {
 
         public override string ToString() {
             string square = string.Format("Side A: {0}, ", sideA);
-            square += string.Format("Periphery: {0}, ", squareSurface.Periphery);
+            square += string.Format("Periphery: {0}, ", base.Periphery);
             square += string.Format("Surface: {0}", surface());
             return square;
         }

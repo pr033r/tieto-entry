@@ -9,7 +9,7 @@ namespace tieto_entry {
     interface I2dObject {
 
         void read(string pathToFile);
-        void write(string pathToFile, _2dObjects squareObject);
+        void write(string pathToFile, _2dObject squareObject);
 
     }
 

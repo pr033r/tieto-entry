@@ -10,16 +10,16 @@ namespace tieto_entry {
 
     interface XMLManager {
 
-        _2dObjects read(string pathToFile);
-        void write(string pathToFile, _2dObjects squareObjects);
+        _2dObject read(string pathToFile);
+        void write(string pathToFile, _2dObject squareObjects);
 
     }
 
     class XML2DObjectsManager : XMLManager {
 
-        private _2dObjects squareObject = new _2dObjects();
+        private _2dObject squareObject = new _2dObject();
 
-        public _2dObjects read(string pathToFile) {
+        public _2dObject read(string pathToFile) {
             XmlDocument doc = new XmlDocument();
             doc.Load(pathToFile);
 
@@ -28,7 +28,7 @@ namespace tieto_entry {
             return squareObject;
         }
 
-        public void write(string pathToFile, _2dObjects squareObject) {
+        public void write(string pathToFile, _2dObject squareObject) {
             XmlDocument document = new XmlDocument();
             XmlDeclaration declaration = document.CreateXmlDeclaration("1.0", "utf-8", null);
             XmlElement root = document.CreateElement("squareObject");
@@ -40,7 +40,7 @@ namespace tieto_entry {
             document.Save(pathToFile);
         }
 
-        private static void writeSquareObject(_2dObjects squareObject, XmlDocument document, XmlElement root) {
+        private static void writeSquareObject(_2dObject squareObject, XmlDocument document, XmlElement root) {
             XmlElement objectElement = document.CreateElement("object");
 
             writeEdges(squareObject, document, objectElement);
@@ -49,7 +49,7 @@ namespace tieto_entry {
             root.AppendChild(objectElement);
         }
 
-        private static void writeEdges(_2dObjects squareObject, XmlDocument document, XmlElement objectElement) {
+        private static void writeEdges(_2dObject squareObject, XmlDocument document, XmlElement objectElement) {
             foreach (var node in squareObject.Edges) {
                 XmlElement edge = document.CreateElement("edge");
                 edge.InnerText = node.ToString();
@@ -57,7 +57,7 @@ namespace tieto_entry {
             }
         }
 
-        private static void writePeriphery(_2dObjects squareObject, XmlDocument document, XmlElement objectElement) {
+        private static void writePeriphery(_2dObject squareObject, XmlDocument document, XmlElement objectElement) {
             XmlElement periphery = document.CreateElement("periphery");
             periphery.InnerText = squareObject.Periphery.ToString();
             objectElement.AppendChild(periphery);
@@ -66,7 +66,7 @@ namespace tieto_entry {
         private void fetchSquareObjectElements(XmlNode root) {
 
             XmlElement squareObjectElement = (XmlElement)root.ChildNodes[0];
-            _2dObjects squareObject = new _2dObjects();
+            _2dObject squareObject = new _2dObject();
 
             squareObject.Edges = fetchEdgesFromXmlNode(squareObjectElement);
             squareObject.Periphery = fetchPeripheryFromXmlNode(squareObjectElement); ;

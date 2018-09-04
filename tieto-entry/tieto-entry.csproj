@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="2dObjectCoordinator.cs" />
-    <Compile Include="2dObjects.cs" />
+    <Compile Include="2dObject.cs" />
     <Compile Include="AppData.cs" />
     <Compile Include="I2dObject.cs" />
     <Compile Include="Log.cs" />

@@ -11,13 +11,21 @@ namespace tieto_entry {
             :base(message) { }
     }
 
-    class _2dObjects : I2dObject {
+    class _2dObject : I2dObject {
 
         private StorageFactory storageFactory;
+        private double[] edges;
         public double Periphery { get; set; }
-        public double[] Edges { get; set; }
 
-        public _2dObjects(double[] edges = null) {
+        public double[] Edges {
+            get => edges;
+            set {
+                edges = value;
+                calculatePeriphery();
+            }
+        }
+
+        public _2dObject(double[] edges = null) {
             Edges = edges == null ? new double[] { 1 } : edges;
             storageFactory = new StorageFactory();
             calculatePeriphery();
@@ -25,7 +33,7 @@ namespace tieto_entry {
 
         public void read(string pathToFile) {
             XMLManager xmlManager = storageFactory.getXMLManager();
-            _2dObjects loadedSquareObject = xmlManager.read(pathToFile);
+            _2dObject loadedSquareObject = xmlManager.read(pathToFile);
             Periphery = loadedSquareObject.Periphery;
             Edges = loadedSquareObject.Edges;
             try {
@@ -35,7 +43,7 @@ namespace tieto_entry {
             }
         }
 
-        public void write(string pathToFile, _2dObjects squareObject) {
+        public void write(string pathToFile, _2dObject squareObject) {
             XMLManager xmlManager = storageFactory.getXMLManager();
             Periphery = squareObject.Periphery;
             Edges = squareObject.Edges;
@@ -58,6 +66,7 @@ namespace tieto_entry {
         private void calculatePeriphery() {
             try {
                 chceckEdgesValidity();
+                Periphery = 0;
                 foreach (var edge in Edges) {
                     Periphery += edge;
                 }
