@@ -15,14 +15,13 @@ namespace tieto_entry {
             List<_2dObject> squareObjects = new List<_2dObject>();
             _2dObjectCoordinator squareObjectsCoordinator = new _2dObjectCoordinator();
 
-            _2dObject testLoad = new _2dObject();
-            string pathToDataFile = Path.Combine(appDataDirectory.path, "test2.xml");
-            testLoad.read(storageFactory.getXMLManager(), pathToDataFile);
-
             _2dObject testWrite = new _2dObject();
-            string pathToDataFileToBeWrite = Path.Combine(appDataDirectory.path, "test3.xml");
+            string pathToDataFileToBeWrite = Path.Combine(appDataDirectory.path, "test.xml");
             testWrite.write(storageFactory.getXMLManager(), pathToDataFileToBeWrite, new _2dObject());
 
+            _2dObject testLoad = new _2dObject();
+            string pathToDataFile = Path.Combine(appDataDirectory.path, "test.xml");
+            testLoad.read(storageFactory.getXMLManager(), pathToDataFile);
 
             squareObjects.Add(new Square(5.6));
             squareObjects.Add(new Square(400.658));
