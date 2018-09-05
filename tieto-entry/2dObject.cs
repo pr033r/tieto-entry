@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    class InvalidEdgeSizeException : Exception {
+    public class InvalidEdgeSizeException : Exception {
         public InvalidEdgeSizeException(string message)
             :base(message) { }
     }
 
-    class _2dObject : I2dObject {
+    public class _2dObject : I2dObject {
 
         private StorageFactory storageFactory;
         private double[] edges;
@@ -21,6 +18,7 @@ namespace tieto_entry {
             get => edges;
             set {
                 edges = value;
+                edges = edges.Select(x => Math.Round(x, 2)).ToArray();
                 calculatePeriphery();
             }
         }
@@ -36,6 +34,7 @@ namespace tieto_entry {
             _2dObject loadedSquareObject = xmlManager.read(pathToFile);
             Periphery = loadedSquareObject.Periphery;
             Edges = loadedSquareObject.Edges;
+            Log.writeInfo(string.Format("File {0} was loaded.", pathToFile));
             try {
                 chceckEdgesValidity();
             } catch (InvalidEdgeSizeException e) {
@@ -63,6 +62,14 @@ namespace tieto_entry {
             return squareObject;
         }
 
+        public void chceckEdgesValidity() {
+            foreach (var edge in Edges) {
+                if (edge <= 0) {
+                    throw new InvalidEdgeSizeException("Size of edge must be greater than zero.");
+                }
+            }
+        }
+
         private void calculatePeriphery() {
             try {
                 chceckEdgesValidity();
@@ -76,15 +83,6 @@ namespace tieto_entry {
                 Log.writeError(e.ToString());
             }
         }
-
-        private void chceckEdgesValidity() {
-            foreach (var edge in Edges) {
-                if (edge <= 0) {
-                    throw new InvalidEdgeSizeException("Size of edge must be greater than zero.");
-                }
-            }
-        }
-
     }
 
 }

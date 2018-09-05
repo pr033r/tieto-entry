@@ -1,30 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    class Rectangle : _2dObject {
-
-        private double sideA, sideB;
+    public class Rectangle : _2dObject {
 
         public Rectangle(double sideA = 1, double sideB = 1) {
+            sideA = Math.Round(sideA, 2);
+            sideB = Math.Round(sideB, 2);
             double[] edges = { sideA, sideB, sideA, sideB };
-            this.sideA = sideA;
-            this.sideB = sideB;
             base.Edges = edges;
         }
 
         public double surface() {
-            return sideA * sideB;
+            return Edges[0] * Edges[1];
         }
 
         public override string ToString() {
-            string rectangle = string.Format("Side A: {0}, ", sideA);
-            rectangle += string.Format("Side B: {0}, ", sideB);
-            rectangle += string.Format("Periphery: {0}, ", base.Periphery);
+            string rectangle = string.Format("Side A: {0}, ", Edges[0]);
+            rectangle += string.Format("Side B: {0}, ", Edges[1]);
+            rectangle += string.Format("Periphery: {0}, ", Periphery);
             rectangle += string.Format("Surface: {0}", surface());
             return rectangle;
         }

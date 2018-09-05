@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tieto-entry", "tieto-entry\tieto-entry.csproj", "{DFFE67E7-8A43-4EE4-957A-D21E5FF3ED2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tieto-entry-test", "tieto-entry-test\tieto-entry-test.csproj", "{2E91AAFC-F2A1-475B-BCD5-E1EC2D55670A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DFFE67E7-8A43-4EE4-957A-D21E5FF3ED2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFFE67E7-8A43-4EE4-957A-D21E5FF3ED2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFFE67E7-8A43-4EE4-957A-D21E5FF3ED2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E91AAFC-F2A1-475B-BCD5-E1EC2D55670A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E91AAFC-F2A1-475B-BCD5-E1EC2D55670A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E91AAFC-F2A1-475B-BCD5-E1EC2D55670A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E91AAFC-F2A1-475B-BCD5-E1EC2D55670A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
