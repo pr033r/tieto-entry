@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace tieto_entry {
 
@@ -10,11 +11,17 @@ namespace tieto_entry {
             AppData appDataDirectory = new AppData();
             Log.init(appDataDirectory.path);
 
+            StorageFactory storageFactory = new StorageFactory();
             List<_2dObject> squareObjects = new List<_2dObject>();
+            _2dObjectCoordinator squareObjectsCoordinator = new _2dObjectCoordinator();
 
+            _2dObject testLoad = new _2dObject();
+            string pathToDataFile = Path.Combine(appDataDirectory.path, "test2.xml");
+            testLoad.read(storageFactory.getXMLManager(), pathToDataFile);
 
-            //squareObjects.read(Path.Combine(appDataDirectory.path, "test2.xml"));
-            //squareObjects.write(Path.Combine(appDataDirectory.path, "test2.xml"), new _2dObjects(new double[] { 1, 2, 3 }));
+            _2dObject testWrite = new _2dObject();
+            string pathToDataFileToBeWrite = Path.Combine(appDataDirectory.path, "test3.xml");
+            testWrite.write(storageFactory.getXMLManager(), pathToDataFileToBeWrite, new _2dObject());
 
 
             squareObjects.Add(new Square(5.6));
@@ -28,13 +35,14 @@ namespace tieto_entry {
             squareObjects.Add(new Triangle(5, 3, 7));
 
             Console.WriteLine("\n === 2dObjectCoordinator methods ===");
-            Console.WriteLine(_2dObjectCoordinator.getTrianglesPeriphery(squareObjects, max: true));
+            Console.WriteLine(squareObjectsCoordinator.getTrianglesPeriphery(squareObjects, min: true));
+            Console.WriteLine(squareObjectsCoordinator.isTriangle(new _2dObject(new double[] { 5, 5, 1 })));
 
-            foreach (var item in _2dObjectCoordinator.getPythagoreanTriangles(squareObjects)) {
+            foreach (var item in squareObjectsCoordinator.getPythagoreanTriangles(squareObjects)) {
                 Console.WriteLine(item.ToString());
             }
-            Console.WriteLine(_2dObjectCoordinator.getRectanglePeriphery(squareObjects, min: true));
-            Console.WriteLine(_2dObjectCoordinator.getSquarePeriphery(squareObjects, min: true));
+            Console.WriteLine(squareObjectsCoordinator.getRectanglePeriphery(squareObjects, min: true));
+            Console.WriteLine(squareObjectsCoordinator.getSquarePeriphery(squareObjects, min: true));
 
 
             Console.WriteLine("\n === 2dObject instances ===");
@@ -45,6 +53,8 @@ namespace tieto_entry {
             Triangle triangle = new Triangle();
             triangle.Edges = new double[] { 10, 10, 5 };
 
+            Console.WriteLine(square);
+            Console.WriteLine(rectangle);
             Console.WriteLine(triangle);
 
             Console.ReadKey();

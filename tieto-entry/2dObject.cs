@@ -8,7 +8,7 @@ namespace tieto_entry {
             :base(message) { }
     }
 
-    public class _2dObject : I2dObject {
+    public class _2dObject : I2dObject<_2dObject> {
 
         private StorageFactory storageFactory;
         private double[] edges;
@@ -29,9 +29,8 @@ namespace tieto_entry {
             calculatePeriphery();
         }
 
-        public void read(string pathToFile) {
-            XMLManager xmlManager = storageFactory.getXMLManager();
-            _2dObject loadedSquareObject = xmlManager.read(pathToFile);
+        public void read(IDataProvider<_2dObject> dataProvider, string pathToFile) {
+            _2dObject loadedSquareObject = dataProvider.read(pathToFile);
             Periphery = loadedSquareObject.Periphery;
             Edges = loadedSquareObject.Edges;
             Log.writeInfo(string.Format("File {0} was loaded.", pathToFile));
@@ -42,13 +41,12 @@ namespace tieto_entry {
             }
         }
 
-        public void write(string pathToFile, _2dObject squareObject) {
-            XMLManager xmlManager = storageFactory.getXMLManager();
+        public void write(IDataProvider<_2dObject> dataProvider, string pathToFile, _2dObject squareObject) {
             Periphery = squareObject.Periphery;
             Edges = squareObject.Edges;
             try {
                 chceckEdgesValidity();
-                xmlManager.write(pathToFile, squareObject);
+                dataProvider.write(pathToFile, squareObject);
             }
             catch (InvalidEdgeSizeException e) {
                 Log.writeError(e.ToString());

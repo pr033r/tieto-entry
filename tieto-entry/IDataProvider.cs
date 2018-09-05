@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    class StorageFactory {
+    public interface IDataProvider<T> {
 
-        public IDataProvider<_2dObject> getXMLManager() {
-            return new XML2DObjectsManager();
-        }
+        T read(string pathToFile);
+        void write(string pathToFile, T objectToWrite);
 
     }
 

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    interface I2dObject {
+    interface I2dObject<T> {
 
-        void read(string pathToFile);
-        void write(string pathToFile, _2dObject squareObject);
+        void read(IDataProvider<T> dataProvider, string pathToFile);
+        void write(IDataProvider<T> dataProvider, string pathToFile, T squareObject);
 
     }
 

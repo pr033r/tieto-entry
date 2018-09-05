@@ -8,14 +8,7 @@ using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    interface XMLManager {
-
-        _2dObject read(string pathToFile);
-        void write(string pathToFile, _2dObject squareObjects);
-
-    }
-
-    class XML2DObjectsManager : XMLManager {
+    class XML2DObjectsManager : IDataProvider<_2dObject> {
 
         private _2dObject squareObject = new _2dObject();
 

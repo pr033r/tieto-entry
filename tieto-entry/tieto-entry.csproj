@@ -47,6 +47,7 @@
     <Compile Include="2dObject.cs" />
     <Compile Include="AppData.cs" />
     <Compile Include="I2dObject.cs" />
+    <Compile Include="IDataProvider.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
