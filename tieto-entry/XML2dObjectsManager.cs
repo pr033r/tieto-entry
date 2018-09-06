@@ -10,24 +10,26 @@ namespace tieto_entry {
 
     class XML2DObjectsManager : IDataProvider<_2dObject> {
 
-        private _2dObject squareObject = new _2dObject();
+        private List<_2dObject> squareObjects = new List<_2dObject>();
 
-        public _2dObject read(string pathToFile) {
+        public List<_2dObject> read(string pathToFile) {
             XmlDocument doc = new XmlDocument();
             doc.Load(pathToFile);
 
             XmlNode root = doc.DocumentElement;
             fetchSquareObjectElements(root);
-            return squareObject;
+            return squareObjects;
         }
 
-        public void write(string pathToFile, _2dObject squareObject) {
+        public void write(string pathToFile, List<_2dObject> squareObjects) {
             XmlDocument document = new XmlDocument();
             XmlDeclaration declaration = document.CreateXmlDeclaration("1.0", "utf-8", null);
             XmlElement root = document.CreateElement("squareObject");
 
             document.AppendChild(declaration);
-            writeSquareObject(squareObject, document, root);
+            foreach(var squareObject in squareObjects) {
+                writeSquareObject(squareObject, document, root);
+            }
 
             document.AppendChild(root);
             document.Save(pathToFile);
@@ -57,14 +59,14 @@ namespace tieto_entry {
         }
 
         private void fetchSquareObjectElements(XmlNode root) {
+            foreach(XmlNode node in root.ChildNodes) {
+                _2dObject squareObject = new _2dObject();
+                XmlElement squareObjectElement = (XmlElement)node;
 
-            XmlElement squareObjectElement = (XmlElement)root.ChildNodes[0];
-            _2dObject squareObject = new _2dObject();
-
-            squareObject.Edges = fetchEdgesFromXmlNode(squareObjectElement);
-            squareObject.Periphery = fetchPeripheryFromXmlNode(squareObjectElement); ;
-
-            this.squareObject = squareObject;
+                squareObject.Edges = fetchEdgesFromXmlNode(squareObjectElement);
+                squareObject.Periphery = fetchPeripheryFromXmlNode(squareObjectElement);
+                createTypeOfDescendant(squareObject);
+            }
         }
 
         private static double[] fetchEdgesFromXmlNode(XmlElement squareObjectElement) {
@@ -81,6 +83,18 @@ namespace tieto_entry {
             double periphery = 0.0;
             double.TryParse(squareObjectElement.GetElementsByTagName("periphery")[0].InnerText, out periphery);
             return periphery;
+        }
+
+        private void createTypeOfDescendant(_2dObject squareObject) {
+            if (_2dObjectCoordinator.isRectangle(squareObject)) {
+                squareObjects.Add(new Rectangle(squareObject.Edges[0], squareObject.Edges[1]));
+            }
+            if (_2dObjectCoordinator.isSquare(squareObject)) {
+                squareObjects.Add(new Square(squareObject.Edges[0]));
+            }
+            if (_2dObjectCoordinator.isTriangle(squareObject)) {
+                squareObjects.Add(new Triangle(squareObject.Edges[0], squareObject.Edges[1], squareObject.Edges[2]));
+            }
         }
     }
 

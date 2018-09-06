@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    public class _2dObjectCoordinator {
+    public static class _2dObjectCoordinator {
 
-        public bool isTriangle(_2dObject squareObject) {
+        public static bool isTriangle(_2dObject squareObject) {
             if (squareObject.Edges.Count() != 3) return false;
             Triangle triangle = new Triangle();
             triangle.Edges = squareObject.Edges;
@@ -22,13 +22,13 @@ namespace tieto_entry {
             return isTriangleCorrect;
         }
 
-        public bool isSquare(_2dObject squareObject) {
+        public static bool isSquare(_2dObject squareObject) {
             if (squareObject.Edges.Count() != 4) return false;
             double firstItem = squareObject.Edges[0];
             return squareObject.Edges.All(x => double.Equals(x, firstItem));
         }
 
-        public bool isRectangle(_2dObject squareObject) {
+        public static bool isRectangle(_2dObject squareObject) {
             if (squareObject.Edges.Count() != 4) return false;
             if (isSquare(squareObject)) return false;
 
@@ -37,22 +37,22 @@ namespace tieto_entry {
             return sidesUpDown && sidesLeftRight;
         }
 
-        public _2dObject getTrianglesPeriphery(List<_2dObject> squareObjects, bool min = false, bool max = false) {
+        public static _2dObject getTrianglesPeriphery(List<_2dObject> squareObjects, bool min = false, bool max = false) {
             List<_2dObject> filteredTriangleObjects = squareObjects.FindAll(x => x is Triangle);
             return getPeripherySquareObject(min, max, filteredTriangleObjects);
         }
 
-        public _2dObject getSquarePeriphery(List<_2dObject> squareObjects, bool min = false, bool max = false) {
+        public static _2dObject getSquarePeriphery(List<_2dObject> squareObjects, bool min = false, bool max = false) {
             List<_2dObject> filteredSquareObjects = squareObjects.FindAll(x => x is Square);
             return getPeripherySquareObject(min, max, filteredSquareObjects);
         }
 
-        public _2dObject getRectanglePeriphery(List<_2dObject> squareObjects, bool min = false, bool max = false) {
+        public static _2dObject getRectanglePeriphery(List<_2dObject> squareObjects, bool min = false, bool max = false) {
             List<_2dObject> filteredRectangleObjects = squareObjects.FindAll(x => x is Rectangle);
             return getPeripherySquareObject(min, max, filteredRectangleObjects);
         }
 
-        public List<Triangle> getPythagoreanTriangles(List<_2dObject> squareObjects) {
+        public static List<Triangle> getPythagoreanTriangles(List<_2dObject> squareObjects) {
             List<_2dObject> filteredRectangleObjects = squareObjects.FindAll(x => x is Triangle);
             List<Triangle> rectanglesToBeReturned = new List<Triangle>();
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace tieto_entry {
@@ -12,6 +13,7 @@ namespace tieto_entry {
 
         private StorageFactory storageFactory;
         private double[] edges;
+
         public double Periphery { get; set; }
 
         public double[] Edges {
@@ -29,28 +31,18 @@ namespace tieto_entry {
             calculatePeriphery();
         }
 
-        public void read(IDataProvider<_2dObject> dataProvider, string pathToFile) {
-            _2dObject loadedSquareObject = dataProvider.read(pathToFile);
-            Periphery = loadedSquareObject.Periphery;
-            Edges = loadedSquareObject.Edges;
+        public List<_2dObject> read(IDataProvider<_2dObject> dataProvider, string pathToFile) {
+            List<_2dObject> loadedSquareObjects = dataProvider.read(pathToFile);
+            calculatePeripheriesAndCheckEdgesValidity(loadedSquareObjects);
+
             Log.writeInfo(string.Format("File {0} was loaded.", pathToFile));
-            try {
-                chceckEdgesValidity();
-            } catch (InvalidEdgeSizeException e) {
-                Log.writeError(e.ToString());
-            }
+            return loadedSquareObjects;
         }
 
-        public void write(IDataProvider<_2dObject> dataProvider, string pathToFile, _2dObject squareObject) {
-            Periphery = squareObject.Periphery;
-            Edges = squareObject.Edges;
-            try {
-                chceckEdgesValidity();
-                dataProvider.write(pathToFile, squareObject);
-            }
-            catch (InvalidEdgeSizeException e) {
-                Log.writeError(e.ToString());
-            }
+        public void write(IDataProvider<_2dObject> dataProvider, List<_2dObject> squareObjectsToBeWrite, string pathToFile) {
+            calculatePeripheriesAndCheckEdgesValidity(squareObjectsToBeWrite);
+            dataProvider.write(pathToFile, squareObjectsToBeWrite);
+            Log.writeInfo(string.Format("Data has been written to {0} file.", pathToFile));
         }
 
         public override string ToString() {
@@ -79,6 +71,16 @@ namespace tieto_entry {
                 Log.writeError(e.ToString());
             } catch (Exception e) {
                 Log.writeError(e.ToString());
+            }
+        }
+
+        private static void calculatePeripheriesAndCheckEdgesValidity(List<_2dObject> squareObjectsToBeWrite) {
+            foreach (var squareObject in squareObjectsToBeWrite) {
+                try {
+                    squareObject.calculatePeriphery();
+                } catch (InvalidEdgeSizeException e) {
+                    Log.writeError(e.ToString());
+                }
             }
         }
     }
