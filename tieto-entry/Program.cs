@@ -42,6 +42,10 @@ namespace tieto_entry {
             
             testObject.write(storageFactory.getXMLManager(), squareObjects, pathToDataFileToBeWrite);
 
+            Console.WriteLine("\n === DBManager ===");
+
+            testObject.write(storageFactory.getDBManager(), squareObjects);
+
             Console.ReadKey();
         }
 

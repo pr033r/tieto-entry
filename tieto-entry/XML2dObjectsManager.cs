@@ -12,7 +12,7 @@ namespace tieto_entry {
 
         private List<_2dObject> squareObjects = new List<_2dObject>();
 
-        public List<_2dObject> read(string pathToFile) {
+        public List<_2dObject> read(string pathToFile = null) {
             XmlDocument doc = new XmlDocument();
             doc.Load(pathToFile);
 
@@ -21,7 +21,7 @@ namespace tieto_entry {
             return squareObjects;
         }
 
-        public void write(string pathToFile, List<_2dObject> squareObjects) {
+        public void write(List<_2dObject> squareObjects, string pathToFile = null) {
             XmlDocument document = new XmlDocument();
             XmlDeclaration declaration = document.CreateXmlDeclaration("1.0", "utf-8", null);
             XmlElement root = document.CreateElement("squareObject");

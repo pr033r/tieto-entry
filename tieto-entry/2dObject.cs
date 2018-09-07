@@ -31,18 +31,27 @@ namespace tieto_entry {
             calculatePeriphery();
         }
 
-        public List<_2dObject> read(IDataProvider<_2dObject> dataProvider, string pathToFile) {
-            List<_2dObject> loadedSquareObjects = dataProvider.read(pathToFile);
-            calculatePeripheriesAndCheckEdgesValidity(loadedSquareObjects);
+        public List<_2dObject> read(IDataProvider<_2dObject> dataProvider, string pathToFile = null) {
+            List<_2dObject> loadedSquareObjects = null;
+            try {
+                loadedSquareObjects = dataProvider.read(pathToFile);
+                calculatePeripheriesAndCheckEdgesValidity(loadedSquareObjects);
+                Log.writeInfo(string.Format("Data was loaded."));
+            } catch (Exception e) {
+                Log.writeError(e.ToString());
+            }
 
-            Log.writeInfo(string.Format("File {0} was loaded.", pathToFile));
             return loadedSquareObjects;
         }
 
-        public void write(IDataProvider<_2dObject> dataProvider, List<_2dObject> squareObjectsToBeWrite, string pathToFile) {
+        public void write(IDataProvider<_2dObject> dataProvider, List<_2dObject> squareObjectsToBeWrite, string pathToFile = null) {
             calculatePeripheriesAndCheckEdgesValidity(squareObjectsToBeWrite);
-            dataProvider.write(pathToFile, squareObjectsToBeWrite);
-            Log.writeInfo(string.Format("Data has been written to {0} file.", pathToFile));
+            try {
+                dataProvider.write(squareObjectsToBeWrite, pathToFile);
+                Log.writeInfo(string.Format("Data has been written."));
+            } catch (Exception e) {
+                Log.writeError(e.ToString());
+            }
         }
 
         public override string ToString() {

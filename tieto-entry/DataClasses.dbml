@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TietoEntry" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-3S3AERK\SQLEXPRESS;Initial Catalog=TietoEntry;Integrated Security=True" SettingsObjectName="tieto_entry.Properties.Settings" SettingsPropertyName="TietoEntryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Object" Member="Objects">
+    <Type Name="Object">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="periphery" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Object_Edge" Member="Edges" ThisKey="id" OtherKey="objectId" Type="Edge" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Edge" Member="Edges">
+    <Type Name="Edge">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="edge" Member="edge1" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="objectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Object_Edge" Member="Object" ThisKey="objectId" OtherKey="id" Type="Object" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -12,6 +12,10 @@ namespace tieto_entry {
             return new XML2DObjectsManager();
         }
 
+        public IDataProvider<_2dObject> getDBManager() {
+            return new DB2DObjectManager();
+        }
+
     }
 
 }

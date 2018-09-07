@@ -8,8 +8,8 @@ namespace tieto_entry {
 
     interface I2dObject<T> {
 
-        List<T> read(IDataProvider<T> dataProvider, string pathToFile);
-        void write(IDataProvider<T> dataProvider, List<T> squareObjects, string pathToFile);
+        List<T> read(IDataProvider<T> dataProvider, string pathToFile = null);
+        void write(IDataProvider<T> dataProvider, List<T> squareObjects, string pathToFile = null);
 
     }
 

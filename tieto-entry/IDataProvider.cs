@@ -8,8 +8,8 @@ namespace tieto_entry {
 
     public interface IDataProvider<T> {
 
-        List<T> read(string pathToFile);
-        void write(string pathToFile, List<T> objectToWrite);
+        List<T> read(string pathToFile = null);
+        void write(List<T> objectsToWrite, string pathToFile = null);
 
     }
 
