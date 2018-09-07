@@ -5,11 +5,11 @@ Application has two read/write classes available through *StorageFactory*:
 * through XML file - *XML2DObjectsManager*
 * MS SQL database - *DB2DObjectManager*
 
-The \*.xml files and logs are stored in users's **AppData/Roaming/tieto-netry/** folder.
+The \*.xml files and logs are stored in users's **AppData/Roaming/tieto-entry/** folder.
 
 Test data are in **/data/testLoad.xml** file.
 
-Database entities structure:
+## Database entities structure:
 
 **Edge table:**
 
