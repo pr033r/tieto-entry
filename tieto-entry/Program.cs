@@ -45,10 +45,14 @@ namespace tieto_entry {
             Console.WriteLine("\n === DBManager reader/writer ===");
 
             //testObject.write(storageFactory.getDBManager(), squareObjects);
-            squareObjects = testObject.read(storageFactory.getDBManager());
+            try {
+                squareObjects = testObject.read(storageFactory.getDBManager());
 
-            foreach (var squareObject in squareObjects) {
-                Console.WriteLine(squareObject);
+                foreach (var squareObject in squareObjects) {
+                    Console.WriteLine(squareObject);
+                }
+            } catch (Exception e) {
+                Log.writeError(e.ToString());
             }
 
             Console.ReadKey();

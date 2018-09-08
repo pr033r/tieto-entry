@@ -1,0 +1,17 @@
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\tieto-entry-test.dll
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\tieto-entry-test.pdb
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\tieto-entry.exe
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\tieto-entry.pdb
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\tieto-entry.exe.config
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\obj\Release\tieto-entry-test.csprojAssemblyReference.cache
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\obj\Release\tieto-entry-test.csproj.CoreCompileInputs.cache
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\obj\Release\tieto-entry-test.csproj.CopyComplete
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\obj\Release\tieto-entry-test.dll
+C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry-test\obj\Release\tieto-entry-test.pdb
