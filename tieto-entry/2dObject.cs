@@ -6,7 +6,7 @@ namespace tieto_entry {
 
     public class InvalidEdgeSizeException : Exception {
         public InvalidEdgeSizeException(string message)
-            :base(message) { }
+            : base(message) { }
     }
 
     public class _2dObject : I2dObject<_2dObject> {

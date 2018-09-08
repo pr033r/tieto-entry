@@ -27,7 +27,7 @@ namespace tieto_entry {
             XmlElement root = document.CreateElement("squareObject");
 
             document.AppendChild(declaration);
-            foreach(var squareObject in squareObjects) {
+            foreach (var squareObject in squareObjects) {
                 writeSquareObject(squareObject, document, root);
             }
 
@@ -59,7 +59,7 @@ namespace tieto_entry {
         }
 
         private void fetchSquareObjectElements(XmlNode root) {
-            foreach(XmlNode node in root.ChildNodes) {
+            foreach (XmlNode node in root.ChildNodes) {
                 _2dObject squareObject = new _2dObject();
                 XmlElement squareObjectElement = (XmlElement)node;
 

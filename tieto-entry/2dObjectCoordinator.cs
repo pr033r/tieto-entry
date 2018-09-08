@@ -56,7 +56,7 @@ namespace tieto_entry {
             List<_2dObject> filteredRectangleObjects = squareObjects.FindAll(x => x is Triangle);
             List<Triangle> rectanglesToBeReturned = new List<Triangle>();
 
-            foreach(Triangle rectangle in filteredRectangleObjects) {
+            foreach (Triangle rectangle in filteredRectangleObjects) {
                 if (rectangle.isPythagorean()) {
                     rectanglesToBeReturned.Add(rectangle);
                 }
@@ -68,11 +68,9 @@ namespace tieto_entry {
         private static _2dObject getPeripherySquareObject(bool min, bool max, List<_2dObject> triangleObjects) {
             if (min) {
                 return triangleObjects.OrderBy(x => x.Periphery).FirstOrDefault();
-            }
-            else if (max) {
+            } else if (max) {
                 return triangleObjects.OrderBy(x => x.Periphery).LastOrDefault();
-            }
-            else {
+            } else {
                 return null;
             }
         }

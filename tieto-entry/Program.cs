@@ -25,7 +25,7 @@ namespace tieto_entry {
             Console.WriteLine("\n === 2dObjectCoordinator methods ===");
             Console.WriteLine("isTriangle( 5, 5, 1 ): {0}", _2dObjectCoordinator.isTriangle(new _2dObject(new double[] { 5, 5, 1 })));
             Console.WriteLine("isSquare( 1, 1, 1, 1, 1 ): {0}", _2dObjectCoordinator.isSquare(new _2dObject(new double[] { 1, 1, 1, 1, 1 })));
-            Console.WriteLine("isRectangle( 1, 2, 1, 1 ): {0}", _2dObjectCoordinator.isRectangle(new _2dObject(new double[] { 1, 2, 1, 1})));
+            Console.WriteLine("isRectangle( 1, 2, 1, 1 ): {0}", _2dObjectCoordinator.isRectangle(new _2dObject(new double[] { 1, 2, 1, 1 })));
 
             Console.WriteLine("\ngetTrianglesPeriphery(...) MIN:\n{0}", _2dObjectCoordinator.getTrianglesPeriphery(squareObjects, min: true));
             Console.WriteLine("\ngetSquarePeriphery(...) MAX:\n{0}", _2dObjectCoordinator.getSquarePeriphery(squareObjects, max: true));
@@ -39,7 +39,7 @@ namespace tieto_entry {
             squareObjects.RemoveAt(1);
             squareObjects.RemoveAt(2);
             squareObjects.RemoveAt(3);
-            
+
             testObject.write(storageFactory.getXMLManager(), squareObjects, pathToDataFileToBeWrite);
 
             Console.WriteLine("\n === DBManager reader/writer ===");
@@ -47,7 +47,7 @@ namespace tieto_entry {
             //testObject.write(storageFactory.getDBManager(), squareObjects);
             squareObjects = testObject.read(storageFactory.getDBManager());
 
-            foreach(var squareObject in squareObjects) {
+            foreach (var squareObject in squareObjects) {
                 Console.WriteLine(squareObject);
             }
 

@@ -31,8 +31,7 @@ namespace tieto_entry {
                     writer.WriteLine(text);
                     writer.Flush();
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Console.WriteLine("Err: {0}", e.Message);
             }
         }

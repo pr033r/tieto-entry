@@ -23,7 +23,7 @@ namespace tieto_entry {
 
         public void write(List<_2dObject> objectsToWrite, string pathToFile = null) {
 
-            foreach(var squareObject in objectsToWrite) {
+            foreach (var squareObject in objectsToWrite) {
                 db.Objects.InsertOnSubmit(new Object { periphery = squareObject.Periphery });
                 try {
                     db.SubmitChanges();

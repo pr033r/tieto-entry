@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace tieto_entry {
 
     public class InvalidTriangleSidesException : Exception {
-        public InvalidTriangleSidesException(string message) 
-            :base(message) { }
+        public InvalidTriangleSidesException(string message)
+            : base(message) { }
     }
 
     public class Triangle : _2dObject {

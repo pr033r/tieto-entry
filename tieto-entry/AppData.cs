@@ -23,8 +23,7 @@ namespace tieto_entry {
                 if (!Directory.Exists(path)) {
                     Directory.CreateDirectory(path);
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Console.WriteLine("Err: {0}", e.Message);
             }
         }
