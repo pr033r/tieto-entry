@@ -68,7 +68,7 @@
     <Compile Include="Square.cs" />
     <Compile Include="StorageFactory.cs" />
     <Compile Include="Triangle.cs" />
-    <Compile Include="XML2DObjectsManager.cs" />
+    <Compile Include="XML2dObjectsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

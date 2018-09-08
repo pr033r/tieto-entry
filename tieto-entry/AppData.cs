@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 
 namespace tieto_entry {
@@ -22,10 +23,18 @@ namespace tieto_entry {
                 path = Path.Combine(appDataPath, appName);
                 if (!Directory.Exists(path)) {
                     Directory.CreateDirectory(path);
+                    copyTestLoadData();
                 }
             } catch (Exception e) {
                 Console.WriteLine("Err: {0}", e.Message);
             }
+        }
+
+        private void copyTestLoadData() {
+            string readFile = ConfigurationManager.AppSettings["readFile"];
+            string sourcePath = AppDomain.CurrentDomain.BaseDirectory + readFile;
+            string destinationPath = string.Format("{0}\\{1}", path, readFile);
+            File.Copy(sourcePath, destinationPath, true);
         }
 
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace tieto_entry {
 
-    class XML2DObjectsManager : IDataProvider<_2dObject> {
+    class XML2dObjectsManager : IDataProvider<_2dObject> {
 
         private List<_2dObject> squareObjects = new List<_2dObject>();
 

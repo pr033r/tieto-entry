@@ -9,7 +9,7 @@ namespace tieto_entry {
     class StorageFactory {
 
         public IDataProvider<_2dObject> getXMLManager() {
-            return new XML2DObjectsManager();
+            return new XML2dObjectsManager();
         }
 
         public IDataProvider<_2dObject> getDBManager() {
