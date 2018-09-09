@@ -32,7 +32,7 @@ namespace tieto_entry {
 
         private void copyTestLoadData() {
             string readFile = ConfigurationManager.AppSettings["readFile"];
-            string sourcePath = AppDomain.CurrentDomain.BaseDirectory + readFile;
+            string sourcePath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\data\" + readFile;
             string destinationPath = string.Format("{0}\\{1}", path, readFile);
             File.Copy(sourcePath, destinationPath, true);
         }

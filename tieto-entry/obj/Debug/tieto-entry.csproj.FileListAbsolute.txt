@@ -1,6 +1,0 @@
-C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry\bin\Debug\tieto-entry.exe.config
-C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry\bin\Debug\tieto-entry.exe
-C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry\bin\Debug\tieto-entry.pdb
-C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry\obj\Debug\tieto-entry.csproj.CoreCompileInputs.cache
-C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry\obj\Debug\tieto-entry.exe
-C:\Users\adam\Dropbox\Csharp - basics\tieto-entry\tieto-entry\obj\Debug\tieto-entry.pdb

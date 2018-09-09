@@ -1,4 +1,4 @@
 .vs
 .packages
-tieto-entry/bin/Debug/tieto-entry.exe
-tieto-entry/bin/Release/tieto-entry.exe
+tieto-entry/bin
+tieto-entry/obj
